@@ -7,7 +7,7 @@ import yaml
 
 code_dir = os.path.abspath(__file__).replace('config.py','')
 project_dir = os.path.abspath(__file__).replace('/src/config.py','')
-root_dir = project_dir.replace(project_dir.split('/')[-1],'')
+root_dir = os.path.abspath(__file__).replace('/CenterHMR/src/config.py','')
 model_dir = os.path.join(project_dir,'models')
 trained_model_dir = os.path.join(project_dir,'trained_models')
 
@@ -72,6 +72,10 @@ smpl_group.add_argument('--smpl_model_path',type = str,default = model_dir,help 
 
 
 args = parser.parse_args()
+print(args)
+args.configs_yml="configs/basic_test.yml"
+print(args)
+print(yaml.__version__)
 args.adjust_lr_epoch = []
 args.kernel_sizes = []
 with open(args.configs_yml) as file:
