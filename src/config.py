@@ -73,9 +73,8 @@ smpl_group.add_argument('--smpl_model_path',type = str,default = model_dir,help 
 
 args = parser.parse_args()
 print(args)
-args.configs_yml="configs/basic_test.yml"
+args.configs_yml="configs/basic_test.yml" #had to change the string because it seems to be corrupted
 print(args)
-print(yaml.__version__)
 args.adjust_lr_epoch = []
 args.kernel_sizes = []
 with open(args.configs_yml) as file:
